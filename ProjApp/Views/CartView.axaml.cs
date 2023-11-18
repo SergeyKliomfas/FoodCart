@@ -12,4 +12,6 @@ public partial class CartView : UserControl
         InitializeComponent();
         DataContext = new CartViewModel(); 
     }
+
+    
 }
