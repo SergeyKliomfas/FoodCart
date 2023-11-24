@@ -17,7 +17,7 @@ public class Product : INotifyPropertyChanged
     public string nutriscore_grade { get; }
     public string allergens { get; }
     public string image_url { get; }
-//    public Task<Bitmap?> ImageFromWebsite { get; }
+    public Task<Bitmap?> ImageFromWebsite { get; }
     public Product(string url)
     {
         var request = new GetRequest(url);
@@ -35,7 +35,7 @@ public class Product : INotifyPropertyChanged
         name = _name.ToString();
         nutriscore_grade = _nut.ToString();
         allergens = _allergens.ToString();
-        //ImageFromWebsite = ImageHelper.LoadFromWeb(new Uri(_image.ToString()));
+        ImageFromWebsite = ImageHelper.LoadFromWeb(new Uri(_image.ToString()));
     }
 
     public override string ToString()
