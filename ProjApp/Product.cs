@@ -4,16 +4,20 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
+using Avalonia.Media.Imaging;
+using ImageExample.Helpers;
 using Newtonsoft.Json.Linq;
 
 namespace ProjApp.ViewModels;
 
 public class Product : INotifyPropertyChanged
 {
-    public string name;
-    public string nutriscore_grade;
-    public string allergens;
-    public string image_url;
+    public string name { get; }
+    public string nutriscore_grade { get; }
+    public string allergens { get; }
+    public string image_url { get; }
+//    public Task<Bitmap?> ImageFromWebsite { get; }
     public Product(string url)
     {
         var request = new GetRequest(url);
@@ -31,9 +35,14 @@ public class Product : INotifyPropertyChanged
         name = _name.ToString();
         nutriscore_grade = _nut.ToString();
         allergens = _allergens.ToString();
-        image_url = _image.ToString();
+        //ImageFromWebsite = ImageHelper.LoadFromWeb(new Uri(_image.ToString()));
     }
 
+    public override string ToString()
+    {
+        return $"{name} {nutriscore_grade} (allergens: {allergens})";
+    }
+    
     public event PropertyChangedEventHandler? PropertyChanged;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)

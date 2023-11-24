@@ -58,7 +58,7 @@
         <!-- Main-->
         <Grid Background="#2d3135">
             <Border>
-                <ScrollViewer>
+                <!--<ScrollViewer>
                     <Grid RowDefinitions="Auto,Auto,Auto" >
                         
                         <Grid.Styles>
@@ -121,6 +121,36 @@
                             </StackPanel>
                         </Grid>
                     </Grid>
+                </ScrollViewer>-->
+                <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding Products}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="160,160,160" RowDefinitions="300" HorizontalAlignment="Center">
+                                <StackPanel Background = "#98A2AC" Grid.Column="0" Margin="5,10,5,0">
+                                    <Label FontSize = "13" FontWeight="DemiBold" Content = "{Binding name}" HorizontalAlignment="Center"></Label>
+                                    <TextBlock HorizontalAlignment = "Center" Text="{Binding nutriscore_grade}"></TextBlock>
+                                    <TextBlock Margin = "0,0,0,10" HorizontalAlignment = "Center" Text="{Binding allergens}"></TextBlock>
+                                    <Button HorizontalAlignment="Center">ADD TO CART</Button>
+                                </StackPanel>
+                                
+                                <StackPanel Background = "#98A2AC" Grid.Column="1" Margin="5,10,5,0">
+                                    <Label FontSize = "13" FontWeight="DemiBold" Content = "{Binding name}" HorizontalAlignment="Center"></Label>
+                                    <TextBlock HorizontalAlignment = "Center" Text="{Binding nutriscore_grade}"></TextBlock>
+                                    <TextBlock Margin = "0,0,0,10" HorizontalAlignment = "Center" Text="{Binding allergens}"></TextBlock>
+                                    <Button HorizontalAlignment="Center">ADD TO CART</Button>
+                                </StackPanel>
+                            
+                                <StackPanel Background = "#98A2AC" Grid.Column="2" Margin="5,10,5,0">
+                                    <Label FontSize = "13" FontWeight="DemiBold" Content = "{Binding name}" HorizontalAlignment="Center"></Label>
+                                    <TextBlock HorizontalAlignment = "Center" Text="{Binding nutriscore_grade}"></TextBlock>
+                                    <TextBlock Margin = "0,0,0,10" HorizontalAlignment = "Center" Text="{Binding allergens}"></TextBlock>
+                                    <Button HorizontalAlignment="Center">ADD TO CART</Button>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
                 </ScrollViewer>
             </Border>
         </Grid>
