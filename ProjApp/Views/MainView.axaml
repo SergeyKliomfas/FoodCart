@@ -46,8 +46,8 @@
                                                 <Image Source="{Binding ImageFromWebsite^}" Height="250" Width="250" Margin="0,10,0,5"/>
                                             </Border>
                                             <Label FontSize = "13" FontWeight="DemiBold" Content = "{Binding name}" HorizontalAlignment="Center"></Label>
-                                            <Image Source="{Binding img^}" MaxWidth="150"/>
-                                            <TextBlock Margin = "0,0,0,5" HorizontalAlignment = "Center" Text="{Binding allergens}"></TextBlock>
+                                            <Image Source="{Binding img}" MaxWidth="250"/>
+                                            <TextBlock Margin = "0,0,0,5" HorizontalAlignment = "Center" Text="{Binding allergens}"/>
                                             <Border>
                                                 <Border.Effect>
                                                     <DropShadowEffect BlurRadius="2" Opacity="0.3"></DropShadowEffect>
@@ -57,7 +57,7 @@
                                                         <Setter Property="Background" Value="#97D695"></Setter>
                                                     </Style>
                                                 </Border.Styles>
-                                                <Button Click="Button_OnClick" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10">ADD TO CART</Button>
+                                                <Button CommandParameter="{Binding}" Command="{Binding $parent[ItemsControl].((vm:MainViewModel)DataContext).AddCart}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10">ADD TO CART</Button>
                                             </Border>
                                         </StackPanel>
                                     </Border>
@@ -82,7 +82,7 @@
             </TabItem.Styles>
                 <Grid Background="#2d3135">
                 <ScrollViewer>
-                    <ItemsControl ItemsSource="{Binding Cart}">
+                    <ItemsControl ItemsSource="{Binding CartColl}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Grid ColumnDefinitions="Auto,auto" HorizontalAlignment="Center">

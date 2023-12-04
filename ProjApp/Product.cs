@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using Avalonia.Controls;
-using Avalonia.Controls.Shapes;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using ImageExample.Helpers;
@@ -16,12 +14,13 @@ namespace ProjApp;
 
 public class Product : INotifyPropertyChanged
 {
-    public string name { get; }
-    public string nutriscore_grade { get; }
+    public string name { get; set; }
+    public string nutriscore_grade { get;}
     public string allergens { get; set; }
     public SolidColorBrush color { get; }
-    public Task<Bitmap?> img { get; set; }
+    public Bitmap img { get; set; }
     public Task<Bitmap?> ImageFromWebsite { get; }
+
     public Product(string url)
     {
         var request = new GetRequest(url);
@@ -48,37 +47,30 @@ public class Product : INotifyPropertyChanged
         {
             case ("A"):
                 color = new SolidColorBrush(Colors.LawnGreen);
-                img = ImageHelper.LoadFromWeb(
-                    new("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nutri-score-A.svg/440px-Nutri-score-A.svg.png"));
+                img = ImageHelper.LoadFromResource(new Uri("avares://ProjApp/Assets/Images/A.png"));
                 break;
             case ("B"):
                 color = new SolidColorBrush(Colors.Green);
-                img = ImageHelper.LoadFromWeb(
-                    new("https://www.isali.com/wp-content/uploads/2021/02/1920px-Nutri-score-B.svg_.png"));
+                img = ImageHelper.LoadFromResource(new Uri("avares://ProjApp/Assets/Images/B.png"));
                 break;
             case ("C"):
                 color = new SolidColorBrush(Colors.YellowGreen);
-                img = ImageHelper.LoadFromWeb(
-                    new("https://www.isali.com/wp-content/uploads/2021/02/1920px-Nutri-score-B.svg_.png"));
+                img = ImageHelper.LoadFromResource(new Uri("avares://ProjApp/Assets/Images/C.png"));
                 break;
             case ("D"):
                 color = new SolidColorBrush(Colors.Coral);
-                img = ImageHelper.LoadFromWeb(
-                    new("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Nutri-score-D.svg/1200px-Nutri-score-D.svg.png"));
+                img = ImageHelper.LoadFromResource(new Uri("avares://ProjApp/Assets/Images/D.png"));
                 break;
             case ("E"):
                 color =  new SolidColorBrush(Colors.Red);
-                img = ImageHelper.LoadFromWeb(
-                    new("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Nutri-score-E.svg/1200px-Nutri-score-E.svg.png"));
+                img = ImageHelper.LoadFromResource(new Uri("avares://ProjApp/Assets/Images/E.png"));
                 break;
             default:
                 color =  new SolidColorBrush(Colors.Wheat);
-                img = ImageHelper.LoadFromWeb(
-                    new("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Nutri-score-E.svg/1200px-Nutri-score-E.svg.png"));
+                img = ImageHelper.LoadFromResource(new Uri("avares://ProjApp/Assets/Images/NONE.png"));
                 break;
         }
     }
-    
     
     public event PropertyChangedEventHandler? PropertyChanged;
 
