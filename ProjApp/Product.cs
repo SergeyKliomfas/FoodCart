@@ -20,7 +20,6 @@ public class Product : INotifyPropertyChanged
     public string nutriscore_grade { get; }
     public string allergens { get; set; }
     public SolidColorBrush color { get; }
-    
     public Task<Bitmap?> img { get; set; }
     public Task<Bitmap?> ImageFromWebsite { get; }
     public Product(string url)

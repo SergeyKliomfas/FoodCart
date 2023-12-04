@@ -34,14 +34,10 @@
         <TabItem Header="YOUR LIST">
         <Grid Background="#2d3135">
                 <ScrollViewer>
-                    <StackPanel>
-                        <StackPanel.Effect>
-                            <DropShadowEffect BlurRadius="10" Opacity="0.5"/>
-                        </StackPanel.Effect>
                         <ItemsControl ItemsSource="{Binding Products}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Background = "#98A2AC" CornerRadius="10" Height="450" Width="300" Margin="0,10,0,20">
+                                    <Border Background = "#98A2AC" CornerRadius="10" Height="450" Width="300" Margin="0,10,20,20">
                                     <StackPanel Margin="0,10,0,30" HorizontalAlignment="Center">
                                             <Border>
                                                 <Border.Effect>
@@ -61,17 +57,22 @@
                                                         <Setter Property="Background" Value="#97D695"></Setter>
                                                     </Style>
                                                 </Border.Styles>
-                                                <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10">ADD TO CART</Button>
+                                                <Button Click="Button_OnClick" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10">ADD TO CART</Button>
                                             </Border>
                                         </StackPanel>
                                     </Border>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" MaxWidth="1000" Height="5000">
+                                    </WrapPanel>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
                         </ItemsControl>
-                    </StackPanel>
                 </ScrollViewer>
         </Grid>
-    <!-- </Grid> -->
+    
         </TabItem>
         <TabItem Header="CART">
             <TabItem.Styles>
@@ -79,6 +80,25 @@
                     <Setter Property="Margin" Value="10,5,5,5"></Setter>
                 </Style>
             </TabItem.Styles>
+                <Grid Background="#2d3135">
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding Products}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="Auto,auto" HorizontalAlignment="Center">
+                                    <StackPanel Grid.Column="0" Width = "500" Height="50" Background="#B5DDCF" Margin="0,10,5,0" HorizontalAlignment="Center">
+                                        <Label Content="{Binding name}"></Label>
+                                        <Grid Background="Aquamarine"></Grid>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Width = "50" Height="50" Background="Red" Margin="0,10,10,0">
+                                        
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+                </Grid>
         </TabItem>
     </TabControl>
 </UserControl>

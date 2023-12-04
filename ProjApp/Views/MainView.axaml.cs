@@ -1,4 +1,5 @@
 using System;
+using System.Collections.ObjectModel;
 using System.Security.Cryptography;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -15,5 +16,9 @@ public partial class MainView : UserControl
     {
         InitializeComponent();
     }
-    
+
+    private void Button_OnClick(object? sender, RoutedEventArgs e)
+    {
+        
+    }
 }

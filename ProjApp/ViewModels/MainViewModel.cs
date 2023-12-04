@@ -16,17 +16,16 @@ public class MainViewModel
 {
     private string[] url =
     {
-        "https://world.openfoodfacts.net/api/v2/product/8076809513753?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
-        "https://world.openfoodfacts.net/api/v2/product/3175680011480?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
-        "https://world.openfoodfacts.net/api/v2/product/5449000214799?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
-        "https://world.openfoodfacts.net/api/v2/product/3228857000166?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
-        "https://world.openfoodfacts.net/api/v2/product/20267605?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
-        "https://world.openfoodfacts.net/api/v2/product/3033710084913?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
-        "https://world.openfoodfacts.net/api/v2/product/3256540000698?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
-        "https://world.openfoodfacts.net/api/v2/product/8076800195057?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
-        "https://world.openfoodfacts.net/api/v2/product/3083680002875?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
-        "https://world.openfoodfacts.net/api/v2/product/5941000025608?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
-        "https://world.openfoodfacts.net/api/v2/product/8715700017006?fields=product_name,nutrition_grades,allergens,image_front_url,image_url"
+        "https://world.openfoodfacts.org/api/v2/product/737628064502.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
+        "https://world.openfoodfacts.org/api/v2/product/8002270014901.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
+        "https://world.openfoodfacts.org/api/v2/product/8076809513753.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
+        "https://world.openfoodfacts.org/api/v2/product/3228886048436.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
+        "https://world.openfoodfacts.org/api/v2/product/8076800195057.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
+        "https://world.openfoodfacts.org/api/v2/product/5411188115472.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
+        "https://world.openfoodfacts.org/api/v2/product/8076809529433.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
+        "https://world.openfoodfacts.org/api/v2/product/9002490205973.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
+        "https://world.openfoodfacts.org/api/v2/product/5053990138722.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
+        "https://world.openfoodfacts.org/api/v2/product/3229820791074.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url"
     };
 
     public ObservableCollection<Product> Products
@@ -36,7 +35,7 @@ public class MainViewModel
             return InitProducts(url);
         }
     }
-
+    
     public ObservableCollection<Product> InitProducts(string[] str)
     {
         var tmp = new List<Product>();
