@@ -28,15 +28,15 @@ public class MainViewModel
         "https://world.openfoodfacts.org/api/v2/product/3229820791074.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url"
     };
 
-    public ObservableCollection<Product> Products
+    public ObservableCollection<Product> Products { get; set; }
+    public ObservableCollection<Product> Cart { get; set; }
+    
+    public MainViewModel()
     {
-        get
-        {
-            return InitProducts(url);
-        }
+        Products = InitProducts(url);
     }
     
-    public ObservableCollection<Product> InitProducts(string[] str)
+    private ObservableCollection<Product> InitProducts(string[] str)
     {
         var tmp = new List<Product>();
         int n = str.Length;

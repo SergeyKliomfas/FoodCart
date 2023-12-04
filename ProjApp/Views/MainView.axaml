@@ -82,13 +82,12 @@
             </TabItem.Styles>
                 <Grid Background="#2d3135">
                 <ScrollViewer>
-                    <ItemsControl ItemsSource="{Binding Products}">
+                    <ItemsControl ItemsSource="{Binding Cart}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Grid ColumnDefinitions="Auto,auto" HorizontalAlignment="Center">
                                     <StackPanel Grid.Column="0" Width = "500" Height="50" Background="#B5DDCF" Margin="0,10,5,0" HorizontalAlignment="Center">
                                         <Label Content="{Binding name}"></Label>
-                                        <Grid Background="Aquamarine"></Grid>
                                     </StackPanel>
                                     <StackPanel Grid.Column="1" Width = "50" Height="50" Background="Red" Margin="0,10,10,0">
                                         
