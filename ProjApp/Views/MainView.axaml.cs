@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using ProjApp.ViewModels;
 
 namespace ProjApp.Views;

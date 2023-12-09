@@ -18,9 +18,11 @@ public class Product : INotifyPropertyChanged
     public string nutriscore_grade { get;}
     public string allergens { get; set; }
     public SolidColorBrush color { get; }
+    
+    public int n_count { get; set; }
     public Bitmap img { get; set; }
     public Task<Bitmap?> ImageFromWebsite { get; }
-
+    
     public Product(string url)
     {
         var request = new GetRequest(url);
@@ -42,35 +44,43 @@ public class Product : INotifyPropertyChanged
         
         allergens = allergens.Replace("en:", "");
         allergens = allergens.Replace("fr:", "");
+
         
         switch (nutriscore_grade)
         {
             case ("A"):
-                color = new SolidColorBrush(Colors.LawnGreen);
+                color = new SolidColorBrush(Color.FromRgb(181, 221, 207));
+                n_count = 5;
                 img = ImageHelper.LoadFromResource(new Uri("avares://ProjApp/Assets/Images/A.png"));
                 break;
             case ("B"):
-                color = new SolidColorBrush(Colors.Green);
+                color = new SolidColorBrush(Color.FromRgb(181, 221, 207));
+                n_count = 4;
                 img = ImageHelper.LoadFromResource(new Uri("avares://ProjApp/Assets/Images/B.png"));
                 break;
             case ("C"):
-                color = new SolidColorBrush(Colors.YellowGreen);
+                color = new SolidColorBrush(Color.FromRgb(208, 227, 189));
+                n_count = 3;
                 img = ImageHelper.LoadFromResource(new Uri("avares://ProjApp/Assets/Images/C.png"));
                 break;
             case ("D"):
-                color = new SolidColorBrush(Colors.Coral);
+                color = new SolidColorBrush(Color.FromRgb(208, 176, 153));
+                n_count = 2;
                 img = ImageHelper.LoadFromResource(new Uri("avares://ProjApp/Assets/Images/D.png"));
                 break;
             case ("E"):
-                color =  new SolidColorBrush(Colors.Red);
+                color =  new SolidColorBrush(Color.FromRgb(214, 174, 165));
+                n_count = 1;
                 img = ImageHelper.LoadFromResource(new Uri("avares://ProjApp/Assets/Images/E.png"));
                 break;
             default:
-                color =  new SolidColorBrush(Colors.Wheat);
+                color =  new SolidColorBrush(Colors.LightGray);
+                n_count = 0;
                 img = ImageHelper.LoadFromResource(new Uri("avares://ProjApp/Assets/Images/NONE.png"));
                 break;
         }
     }
+    
     
     public event PropertyChangedEventHandler? PropertyChanged;
 
