@@ -8,10 +8,10 @@ using Avalonia.Media.Imaging;
 using ImageExample.Helpers;
 using Newtonsoft.Json.Linq;
 using ProjApp.ViewModels;
-using ProjApp.Views;
 
 namespace ProjApp;
 
+//Класс продукта, будет использоваться в коллекции
 public class Product : INotifyPropertyChanged
 {
     public string name { get; set; }
@@ -20,8 +20,8 @@ public class Product : INotifyPropertyChanged
     public SolidColorBrush color { get; }
     
     public int n_count { get; set; }
-    public Bitmap img { get; set; }
-    public Task<Bitmap?> ImageFromWebsite { get; }
+    public Bitmap img { get; set; } // для N-score картинки
+    public Task<Bitmap?> ImageFromWebsite { get; } // для картинки из api
     
     public Product(string url)
     {

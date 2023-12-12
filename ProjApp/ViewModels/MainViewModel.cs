@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using Avalonia.Markup.Xaml.MarkupExtensions;
-using Avalonia.Markup.Xaml.Templates;
 using CommunityToolkit.Mvvm.ComponentModel;
-using DynamicData.Binding;
 
 namespace ProjApp.ViewModels;
 
@@ -26,14 +20,13 @@ public class MainViewModel : ObservableObject
         "https://world.openfoodfacts.org/api/v2/product/7622300744663.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
         "https://world.openfoodfacts.org/api/v2/product/3347761000670.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
         "https://world.openfoodfacts.org/api/v2/product/3228857001118.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
-        "https://world.openfoodfacts.org/api/v2/product/5053990138722.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
         "https://world.openfoodfacts.org/api/v2/product/4001954161010.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
         "https://world.openfoodfacts.org/api/v2/product/3038352880305.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
         "https://world.openfoodfacts.org/api/v2/product/3229820791074.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url"
     };
     
-    public ObservableCollection<Product> Products { get; set; }
-    public ObservableCollection<Product> CartColl { get; set; }
+    public ObservableCollection<Product> Products { get; set; } // коллекция продуктов
+    public ObservableCollection<Product> CartColl { get; set; } // коллекция продуктов в корзине
     
     private int CountN { get; set; }
     private int Count { get; set; }
@@ -50,7 +43,7 @@ public class MainViewModel : ObservableObject
         } 
     }
 
-    public string MeanNutri()
+    public string MeanNutri() //ф-я для подсчета среднего N-score
     {
         string tmp;
         if (Count != 0)
@@ -89,7 +82,7 @@ public class MainViewModel : ObservableObject
         return tmp;
     }
 
-    public void AddCart(Product obj)
+    public void AddCart(Product obj) // Добавление в корзигу
     {
         Product tmp = obj;
         CartColl.Add(tmp);
@@ -99,7 +92,7 @@ public class MainViewModel : ObservableObject
         OnPropertyChanged(nameof(Mean));
     }
     
-    public void DeleteProduct(Product obj)
+    public void DeleteProduct(Product obj) // Удаление из корзины
     {
         Product tmp = obj;
         CartColl.Remove(tmp);
@@ -108,13 +101,13 @@ public class MainViewModel : ObservableObject
         Mean = MeanNutri();
         OnPropertyChanged(nameof(Mean));
     }
-    public MainViewModel()
+    public MainViewModel() // Инициализация коллекций 
     {
         CartColl = new ObservableCollection<Product>();
         Products = InitProducts(url);
     }
     
-    private ObservableCollection<Product> InitProducts(string[] str)
+    private ObservableCollection<Product> InitProducts(string[] str) //ф-я для инициализации Product коллекции
     {
         var tmp = new List<Product>();
         int n = str.Length;

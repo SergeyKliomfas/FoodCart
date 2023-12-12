@@ -6,6 +6,7 @@ namespace ProjApp.Views;
 
 public partial class MainView : UserControl
 {
+    // создаем экземпляр MainViewModel для связи с MainView
     public MainView()
     {
         InitializeComponent();

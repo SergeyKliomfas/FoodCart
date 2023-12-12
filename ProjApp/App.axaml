@@ -4,7 +4,7 @@
              xmlns:viewModel="clr-namespace:ProjApp.ViewModels"
              xmlns:views="clr-namespace:ProjApp.Views"
              x:Class="ProjApp.App"
-             RequestedThemeVariant="Default">
+             RequestedThemeVariant="Light">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
