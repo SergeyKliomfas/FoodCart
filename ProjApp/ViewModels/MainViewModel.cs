@@ -22,7 +22,8 @@ public class MainViewModel : ObservableObject
         "https://world.openfoodfacts.org/api/v2/product/3228857001118.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
         "https://world.openfoodfacts.org/api/v2/product/4001954161010.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
         "https://world.openfoodfacts.org/api/v2/product/3038352880305.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
-        "https://world.openfoodfacts.org/api/v2/product/3229820791074.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url"
+        "https://world.openfoodfacts.org/api/v2/product/3229820791074.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url",
+        "https://world.openfoodfacts.org/api/v2/product/3474341105842.json?fields=product_name,nutrition_grades,allergens,image_front_url,image_url"
     };
     
     public ObservableCollection<Product> Products { get; set; } // коллекция продуктов
